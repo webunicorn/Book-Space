@@ -45,6 +45,6 @@ app.get('/', (req, res) => {
 app.use('/api/user', userAPIRouter);
 app.use('/api/post', postAPIRouter);
 
-app.listen(3065, () => {
-    console.log('server is running on loacalhost:3065');
+app.listen(process.env.NODE_ENV === 'production' ? process.env.PORT : 3065, () => {
+    console.log(`server is running on ${process.env.PORT}`);
 });
