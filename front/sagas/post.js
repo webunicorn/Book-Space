@@ -14,8 +14,9 @@ import {
     LOAD_WISH_INFO_SUCCESS,
     LOAD_WISH_INFO_FAILURE,
 } from '../reducers/post';
+import { backUrl } from '../config/config';
 
-axios.defaults.baseURL = 'http://localhost:3065/api'; 
+axios.defaults.baseURL = `${backUrl}/api`; 
 
 // *** 위시 추가
 function addWishAPI(wishData){

@@ -14,8 +14,9 @@ import {
     LOAD_USER_SUCCESS,
     LOAD_USER_FAILURE,
 } from '../reducers/user';
+import { backUrl } from '../config/config';
 
-axios.defaults.baseURL = 'http://localhost:3065/api'; 
+axios.defaults.baseURL = `${backUrl}/api`; 
 
 //**로그인**
 function logInAPI(loginData){
