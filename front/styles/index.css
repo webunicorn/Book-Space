@@ -5,6 +5,7 @@ body {font-family:'Noto Sans KR', sans-serif;}
 a:link, a:visited, a:active, a:hover { color:#333; text-decoration:none; }
 .clear::after {display:block; content: ''; clear: both;}
 
+/*** antd checkbox ***/
 .ant-checkbox-checked .ant-checkbox-inner {background-color:#cb8ac4; border-color:#cb8ac4;}
 .ant-checkbox:hover {border-color:#cb8ac4 !important;}
 .ant-checkbox-inner::after:hover {border-color:#cb8ac4 !important;}
@@ -12,35 +13,37 @@ a:link, a:visited, a:active, a:hover { color:#333; text-decoration:none; }
 .ant-checkbox:hover .ant-checkbox-inner,
 .ant-checkbox-input:focus + .ant-checkbox-inner {border-color:#cb8ac4 !important;}
 
+/*** header ***/
 header nav {position: absolute; width:100%; padding:2rem 3rem; z-index: 100;}
 header nav h1 a {float:left; font-size:2rem; font-weight: 500; font-family: 'Roboto', sans-serif; color:#fff !important; transition:all .2s ease-in-out;}
 header nav h1 a:hover {opacity: 0.7;}
 header nav ul {float:right; margin-top:-3px;}
-header nav ul li {display: inline-block; margin-left:10px;}
+header nav ul li {display: inline-block; margin-left:1rem;}
 header nav ul li a {transition:all .2s ease-in-out;}
 header nav ul li:hover a {opacity: 0.7;}
-header nav .btn_nav_signup a {display:inline-block; border-radius:3px; min-width:80px; text-align:center; box-sizing:border-box; padding:8px 5px; border:1px solid #fff; background:none; color:#fff; font-size:1.3rem;}
-header nav .btn_nav_login a {display:inline-block; border-radius:3px; min-width:80px; text-align:center; box-sizing:border-box; padding:8px 5px; border:1px solid #fff; background:#fff; color:#cb8ac4; font-size:1.3rem; font-weight:500;}
-header nav .btn_nav_mypage a {width:35px; height:35px; background:#ddd; border-radius: 50%; display: block;}
-header nav .btn_nav_mypage .anticon-user {display: flex; justify-content: center; padding-top:2px;}
+header nav .btn_nav_signup a {display:inline-block; border-radius:0.3rem; min-width:8rem; text-align:center; box-sizing:border-box; padding:0.8rem 0.5rem; border:1px solid #fff; background:none; color:#fff; font-size:1.3rem;}
+header nav .btn_nav_login a {display:inline-block; border-radius:0.3rem; min-width:8rem; text-align:center; box-sizing:border-box; padding:0.8rem 0.5rem; border:1px solid #fff; background:#fff; color:#cb8ac4; font-size:1.3rem; font-weight:500;}
+header nav .btn_nav_mypage a {width:3.5rem; height:3.5rem; background:#ddd; border-radius: 50%; display: block;}
+header nav .btn_nav_mypage .anticon-user {display: flex; justify-content: center; padding-top:0.3rem;}
 header nav .btn_nav_mypage .anticon-user svg {width:2.8rem; height:2.8rem; opacity:0.4;}
 header nav.active {background:#8a94c3; border-bottom:1px solid #ccc;}
-.sub_tit {height: 65px; background:#a791a9; width:100%; text-align:center; font-size:1.9rem; font-weight: 500; padding-top:25px; color:#fff;}
 
+/*** content ***/
+/* _index */
 main {margin-bottom:100px;}
+.sub_tit {height: 65px; background:#a791a9; width:100%; text-align:center; font-size:1.9rem; font-weight: 500; padding-top:25px; color:#fff;}
 .visual {display:flex; justify-content:center; flex-direction:column; align-items: center; background:url('../images/bg_visual.jpg') no-repeat center; background-size:cover; width:100%; height:400px;}
 .visual h2 {display:inline; font-size:5rem; font-weight: 900; color:#fff;}
-.visual blockquote {padding-top:25px; line-height:2rem; font-size:1.4rem; color:#ddd; text-align: center; font-weight:200;}
+.visual blockquote {padding:2.5rem 2rem; line-height:2rem; font-size:1.4rem; color:#ddd; text-align: center; font-weight:200;}
 .visual blockquote span {display:block;}
-.search_box {display:flex; width:calc(100% - 50px); max-width:650px; margin:0 auto; position:relative;}
-.search_box .anticon-search {position:absolute; left:36px; top:-15px; color:#ddd; transition:all .2s ease-in-out;}
+.search_box {display:flex; width:calc(100% - 3rem); max-width:650px; margin:0 auto; position:relative;}
+.search_box .anticon-search {position:absolute; left:2.8rem; top:-15px; color:#ddd; transition:all .2s ease-in-out;}
 .search_box.on .anticon-search {color:#333;}
 .search_box .anticon-search svg {width:30px; height:30px;}
-.input_search {display:block; margin:-24px auto 0 auto; width:calc(100% - 50px); max-width:650px; height:48px; padding:13px 12px 13px 50px; box-sizing: border-box; border:1px solid #ddd; color:#333; font-size:1.6rem; border-radius:6px; background:#fff; box-shadow: 0 3px 10px 0 rgba(0,0,0,0.1), 0 1px 4px 0 rgba(0,0,0,0.35); font-weight: 500; color:#555;}
+.input_search {display:block; margin:-24px auto 0 auto; width:calc(100% - 3rem); max-width:650px; height:48px; padding:13px 12px 13px 50px; box-sizing: border-box; border:1px solid #ddd; color:#333; font-size:1.6rem; border-radius:6px; background:#fff; box-shadow: 0 3px 10px 0 rgba(0,0,0,0.1), 0 1px 4px 0 rgba(0,0,0,0.35); font-weight: 500; color:#555;}
 .input_search::placeholder {color:#ccc;}
 .input_search::-moz-placeholder {color:#ccc;}
 .input_search::-webkit-input-placeholder {color:#ccc;}
-.search_result {}
 .search_result ul {display: flex; justify-content: space-evenly; flex-wrap: wrap; width:100%; margin-top:60px;}
 .search_result li a {display: flex; flex-direction: column; max-width:120px; width:100%; margin:10px 10px 50px 10px;}
 .search_result li img {width:100%;}
@@ -50,7 +53,7 @@ main {margin-bottom:100px;}
 .btn_more {border:1px solid #d1d5d9; background:#fff; width:100px; height:40px; font-size:1.4rem; font-weight:500; border-radius:4px; display:block; margin:50px auto; color:#808991; transition:all .2s ease-in;}
 .btn_more:hover {background:#f2f4f5; color:#808991;}
 
-
+/* _signup, _login */
 .signup_cont, 
 .login_cont {display:flex; justify-content:center; margin-top:50px;}
 .input_box {padding-bottom:10px;}
@@ -68,14 +71,15 @@ main {margin-bottom:100px;}
 .btn_join {margin-top:10px; display:block; width:300px; border:1px solid #cb8ac4; font-size:1.4rem; background:#cb8ac4; padding:10px 0; font-weight:500; color:#fff; border-radius:4px; transition:all .2s ease-in-out;}
 .btn_join:hover {opacity: 0.85;}
 
+/* _dtail */
 .visual_thumb {width: 100%; background:#000; overflow: hidden;}
 .visual_thumb div {height:380px; max-width:1000px; background-size: cover; background-repeat: no-repeat; margin:0 auto; filter: blur(14px); }
 .book_cont {width: 100%; padding-bottom:300px;}
-.book_cont::before {display:block; content: ''; width: 100%; height:1px; background:#ddd; position: absolute; margin-top:160px;}
+.item_info_wrap {border-bottom:1px solid #ddd; padding-bottom:2rem;}
 .book_cont .item_info {max-width:1000px; margin:0 auto; padding:0 15px;}
 .book_cont .item_info .thumb_img {float:left; position: relative; border:1px solid #eaeaea; border-radius: 6px; padding:1px; margin:-35px 25px 0 10px; background:#fff;}
-.book_cont .item_info .title {font-size:3rem; font-weight: 800; padding-top:20px;}
-.book_cont .item_info .authors {font-size:1.7rem; color:#888; font-weight: 300; padding-top:15px; display: block;}
+.book_cont .item_info .title {font-size:3rem; font-weight: 800; padding-top:20px; line-height:3.8rem;}
+.book_cont .item_info .authors {font-size:1.7rem; color:#888; font-weight: 300; padding-top:1.5rem; display: block;}
 .btn_wish {margin-top:18px; border:1px solid #cb8ac4; background:#cb8ac4; width:200px; height:40px; border-radius:5px; color:#fff; font-size:1.6rem; font-weight:500; transition:all .2s ease-in-out;}
 .btn_wish:hover {opacity: 0.85;}
 .btn_wish .anticon-plus {padding-right:4px;}
@@ -92,22 +96,50 @@ main {margin-bottom:100px;}
 .book_cont em span {font-size:1.3rem; font-weight:300; color:#999;}
 .book_cont p {font-size:1.5rem; font-weight: 500; line-height: 2.3rem;}
 
+/* _mypage */
 .visual_mypage {height:380px; width:100%; background:#fff url('../images/bg_mypage.jpg') no-repeat 0 0; background-size:cover;}
 .myinfo_cont {max-width:1000px; margin:0 auto; padding:0 20px;}
-.myinfo_cont .img_profile .anticon-user {margin-top: -40px; width: 80px; height: 80px; display: block; border-radius: 50%; background: #ddd;}
+.myinfo_cont .img_profile .anticon-user {margin-top: -4rem; width: 8rem; height: 8rem; display: block; border-radius: 50%; background: #ddd;}
 .myinfo_cont .img_profile .anticon-user svg {width: 8rem; height: 6rem; margin-top: 8px; box-sizing: border-box; opacity: 0.4;}
-.myinfo_cont .nickname {font-size:2.7rem; font-weight:600; color:#333; display: block; padding:15px 0; float:left;}
-.myinfo_cont .btn_logout {border:1px solid #d1d5d9; background:#fff; width:80px; height:30px; font-size:1.2rem; font-weight:500; border-radius:4px; float:right; margin-top:-30px; color:#808991; transition:all .2s ease-in;}
+.myinfo_cont .nickname {font-size:2.7rem; font-weight:600; color:#333; display: block; padding:1.5rem 0; float:left;}
+.myinfo_cont .btn_logout {border:1px solid #d1d5d9; background:#fff; width:80px; height:30px; font-size:1.2rem; font-weight:500; border-radius:4px; float:right; margin-top:-3rem; color:#808991; transition:all .2s ease-in;}
 .myinfo_cont .btn_logout:hover {background:#f2f4f5; color:#808991;}
 .wish_list {max-width:1000px; margin:50px auto 0 auto; padding:0 20px;}
 .wish_list h4 {font-size:1.8rem; font-weight:500;}
-.wish_list h4 span {font-size:1.3rem; color:#888; padding-left:10px;}
+.wish_list h4 span {font-size:1.3rem; color:#888; padding-left:1rem;}
 .wish_list ul {display: flex; justify-content: space-evenly; flex-wrap: wrap; width:100%; margin-top:30px;}
 .wish_list li {display: flex; flex-direction: column; max-width:120px; width:100%; margin:10px 10px 50px 10px;}
 .wish_list li img {width:100%;}
 .wish_list li .title {font-size:1.3rem; font-weight:500; padding-top:10px; line-height:1.5rem; color:#333;}
 .wish_list li .author {font-size:1.1rem; color:#969696; padding-top:8px;}
-.btn_wish_delete {border:1px solid #d1d5d9; height:30px; width:100%; margin-top:15px; border-radius:4px; background:#fff; font-size:1.1rem; font-weight:500; color:#808991; transition:all .2s ease-in;}
+.btn_wish_delete {border:1px solid #d1d5d9; height:3rem; width:100%; margin-top:1.5rem; border-radius:4px; background:#fff; font-size:1.1rem; font-weight:500; color:#808991; transition:all .2s ease-in;}
 .btn_wish_delete:hover {background:#f2f4f5; color:#808991;}
+
+
+
+@media only screen and (max-width : 560px) {
+    .item_info {display: flex; flex-direction: column; align-items: center;}
+    .book_cont .item_info .title {text-align: center;}
+    .btn_wish, 
+    .btn_wish_cancel {width: calc(100% - 3rem); margin-top:3rem;}
+    header nav {padding: 2rem;}
+    .sub_tit {font-size:0; text-indent: -9999px;}
+    .signup_cont, 
+    .login_cont {display: block; margin:5rem 3rem;}
+    .input_box input,
+    .btn_login,
+    .btn_link_join a,
+    .btn_join {width:100%;}
+}
+
+@media only screen and (min-width:371px) and (max-width : 560px) {
+    html {font-size:9px;}
+}
+
+@media only screen and (max-width : 370px) {
+    html {font-size:8px;}
+    .book_cont p {font-size:1.6rem;}
+}
+
 
 
