@@ -22,7 +22,7 @@ if(prod) {
     app.use(hpp());
     app.use(morgan('combined'));
     app.use(cors({
-        origin: 'http://bookspacereact.tk',
+        origin: 'http://bookspace.pe.kr',
         credentials: true,
     }))
 }else{
@@ -44,7 +44,7 @@ app.use(expressSession({
     cookie: {
         httpOnly: true,
         secure: false,
-        domain: prod && '.bookspacereact.tk',
+        domain: prod && '.bookspace.pe.kr',
     },
     name: 'fesfx',
 }));

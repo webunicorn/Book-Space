@@ -1,3 +1,3 @@
-const backUrl = process.env.NODE_ENV === 'production' ? 'http://api.bookspacereact.tk' : 'http://localhost:3065';
+const backUrl = process.env.NODE_ENV === 'production' ? 'http://api.bookspace.pe.kr' : 'http://localhost:3065';
 
 export { backUrl };

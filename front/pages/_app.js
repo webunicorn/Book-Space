@@ -38,7 +38,7 @@ const BookSpace = ({ Component, store, pageProps }) => {
                     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1" key="viewport"/>
                     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
                     <meta name="format-detection" content="telephone=no" />
-                    <meta name="description" content="책 안의 우주, Book Space" />
+                    <meta name="description" content="책 속의 우주, Book Space" />
                     <meta property="og:title" content="Book Space"/>
                     <meta property="og:image" content="/favicon.ico" />
                     <link rel="shortcut icon" href="/favicon.ico"/>
