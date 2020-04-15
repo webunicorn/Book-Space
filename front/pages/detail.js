@@ -4,13 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { bookSearch } from '../components/BookAPI';
 import { ADD_WISH_REQUEST, LOAD_WISH_INFO_REQUEST, REMOVE_WISH_REQUEST } from '../reducers/post';
 import { LOAD_USER_REQUEST } from '../reducers/user';
-import { PlusOutlined, TagOutlined } from '@ant-design/icons';
+import { PlusOutlined, TagOutlined, LoadingOutlined } from '@ant-design/icons';
 
 const Detail = memo(({ id }) => {
     
     const router = useRouter();
     const [detailBook, setDetailBook] = useState([]);
-    const { myWishs } = useSelector(state => state.post);
+    const { myWishs, isAddingWish } = useSelector(state => state.post);
     const { me } = useSelector(state => state.user);
     const dispatch = useDispatch();
     const query = router.query.isbn;
@@ -89,9 +89,10 @@ const Detail = memo(({ id }) => {
         });
     });
 
-
+    console.log(isAddingWish);
     return (
         <>
+        
             {detailBook.map((book, index) => (
             <>
                 <section className="visual_thumb"><div style={{backgroundImage:`url(${book.thumbnail})`}}></div></section>
@@ -101,7 +102,7 @@ const Detail = memo(({ id }) => {
                             <img className="thumb_img" src={book.thumbnail} alt={book.title}/>
                             <h3 className="title">{book.title}</h3>
                             <strong className="authors">{book.authors.map(v => v + ' ')}</strong>
-                            {myWishs.length > 0 ? <button className="btn_wish_cancel" onClick={onRemoveWish(myWishs.map(v=> v.id))}><TagOutlined /> 읽고 싶어요</button> : <button className="btn_wish" onClick={onAddWish}><PlusOutlined /> 읽고 싶어요</button>}
+                            {myWishs.length > 0 ? <button className="btn_wish_cancel" onClick={onRemoveWish(myWishs.map(v=> v.id))}> {isAddingWish ? <LoadingOutlined /> : <TagOutlined />} 읽고 싶어요</button> : <button className="btn_wish" onClick={onAddWish}><PlusOutlined /> 읽고 싶어요</button>}
                         </div>
                     </div>
                     <div className="item_intro">

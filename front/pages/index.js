@@ -2,8 +2,6 @@ import React, { useState, useCallback, useEffect, useRef, memo } from 'react';
 import { bookSearch } from '../components/BookAPI';
 import List from './list';
 import { SearchOutlined } from '@ant-design/icons';
-// import dotenv from 'dotenv';
-// dotenv.config({path: __dirname + '/.env'})
 
 const Home = memo(() => {
     const [query, setQuery] = useState('');
@@ -13,8 +11,6 @@ const Home = memo(() => {
     const [isEndPage, setIsEndPage] = useState(true);
     const inputRef = useRef(null);
 
-
-    console.log(process.env.KAKAO_API_KEY);
     useEffect(() => {
         inputRef.current.focus();
         if(query.length > 0) {
