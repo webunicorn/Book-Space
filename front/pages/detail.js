@@ -97,12 +97,12 @@ const Detail = memo(({ id }) => {
 
     return (
         <>
-            {/* {isLoadingWish
+            {isLoadingWish
 
             ?   <div className="loading">로딩중입니다.</div>
 
             :
-            <> */}
+            <>
                 {detailBook.map((book, index) => (
                 <>
                     <section className="visual_thumb"><div style={{backgroundImage:`url(${book.thumbnail})`}}></div></section>
@@ -130,10 +130,8 @@ const Detail = memo(({ id }) => {
                     </section>
                 </>
                 ))}
-            {/* </>
-            } */}
-
-            
+            </>
+            }
         </>
     );
 

@@ -9,6 +9,7 @@ export const initialState = {
     hasMoreWish: false,
     hasMyWish: false,
     isLoadingWish: false,
+    isRemovingWish: false,
 };
 
 export const ADD_WISH_REQUEST = 'ADD_WISH_REQUEST';
@@ -67,16 +68,19 @@ export default (state = initialState, action) => {
             }
 
             case REMOVE_WISH_REQUEST: {
+                draft.isRemovingWish = true;
                 break;
             }
 
             case REMOVE_WISH_SUCCESS: {
                 const index = draft.myWishs.findIndex(v => v.id === action.data);
                 draft.myWishs.splice(index, 1);
+                draft.isRemovingWish = false;
                 break;
             }
 
             case REMOVE_WISH_FAILURE: {
+                draft.isRemovingWish = false;
                 break;
             }
 

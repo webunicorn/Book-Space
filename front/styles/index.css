@@ -115,6 +115,8 @@ main {margin-bottom:100px;}
 .wish_list li .author {font-size:1.1rem; color:#969696; padding-top:8px;}
 .btn_wish_delete {border:1px solid #d1d5d9; height:3rem; width:100%; margin-top:1.5rem; border-radius:4px; background:#fff; font-size:1.1rem; font-weight:500; color:#808991; transition:all .2s ease-in;}
 .btn_wish_delete:hover {background:#f2f4f5; color:#808991;}
+.btn_wish_delete span {padding-right:0.3rem;}
+.btn_wish_delete span svg {width:1.3rem; height:1.3rem;}
 
 
 
