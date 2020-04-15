@@ -46,9 +46,7 @@ const Detail = memo(({ id }) => {
     
     const onAddWish = useCallback((e) => {
         e.preventDefault();
-
-        setChangeId(myWishs.length);
-   
+        changeId === 0 ? setChangeId(1) : setChangeId(0);
 
         if(!me) {
             alert('로그인이 필요합니다.');
@@ -87,7 +85,7 @@ const Detail = memo(({ id }) => {
 
     const onRemoveWish = useCallback(userId => (e) => {
         e.preventDefault();
-        setChangeId(myWishs.length);
+        changeId === 0 ? setChangeId(1) : setChangeId(0);
         dispatch({
             type: REMOVE_WISH_REQUEST,
             data: userId
@@ -95,15 +93,16 @@ const Detail = memo(({ id }) => {
     });
 
     console.log(myWishs.map(v=> v.id));
+    console.log(changeId);
 
     return (
         <>
-            {isLoadingWish
+            {/* {isLoadingWish
 
             ?   <div className="loading">로딩중입니다.</div>
 
             :
-            <>
+            <> */}
                 {detailBook.map((book, index) => (
                 <>
                     <section className="visual_thumb"><div style={{backgroundImage:`url(${book.thumbnail})`}}></div></section>
@@ -131,8 +130,8 @@ const Detail = memo(({ id }) => {
                     </section>
                 </>
                 ))}
-            </>
-            }
+            {/* </>
+            } */}
 
             
         </>
