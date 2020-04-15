@@ -20,7 +20,9 @@ const Detail = memo(({ id }) => {
         dispatch({
             type: LOAD_USER_REQUEST,
         });
-
+    },[]);
+    
+    useEffect(() => {
         setTimeout(() => {
             dispatch({
                 type: LOAD_WISH_INFO_REQUEST,
@@ -29,10 +31,9 @@ const Detail = memo(({ id }) => {
                     id : me.id
                 }
             });
-        }, 50);
+        }, 500);
         
         bookSearchHandler(query, true);
- 
     },[changeId]);
 
     const bookSearchHandler = async (query) => {
@@ -46,7 +47,6 @@ const Detail = memo(({ id }) => {
     
     const onAddWish = useCallback((e) => {
         e.preventDefault();
-        changeId === 0 ? setChangeId(1) : setChangeId(0);
 
         if(!me) {
             alert('로그인이 필요합니다.');
@@ -70,6 +70,8 @@ const Detail = memo(({ id }) => {
                 src : src
             }
         });
+
+        changeId === 0 ? setChangeId(1) : setChangeId(0);
         
         // setTimeout(() => {
         //     dispatch({
@@ -85,12 +87,14 @@ const Detail = memo(({ id }) => {
 
     const onRemoveWish = useCallback(userId => (e) => {
         e.preventDefault();
-        changeId === 0 ? setChangeId(1) : setChangeId(0);
         dispatch({
             type: REMOVE_WISH_REQUEST,
             data: userId
         });
+        changeId === 0 ? setChangeId(1) : setChangeId(0);
     });
+
+    
 
     console.log(myWishs.map(v=> v.id));
     console.log(changeId);
