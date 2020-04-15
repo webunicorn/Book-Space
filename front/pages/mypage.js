@@ -6,7 +6,7 @@ import Router from 'next/router';
 import { UserOutlined } from '@ant-design/icons';
 
 const Mypage = memo(({ id }) => {
-    const { myWishs, isLoadingWish } = useSelector(state => state.post);
+    const { myWishs } = useSelector(state => state.post);
     const { me } = useSelector(state => state.user);
     const dispatch = useDispatch();
 
@@ -37,35 +37,27 @@ const Mypage = memo(({ id }) => {
 
     return(
         <>
-            {isLoadingWish
-
-            ?   <div className="loading">로딩중입니다.</div>
-
-            :
-            <>
-                <section className="visual_mypage"></section>
-                <section className="myinfo_cont clear">
-                    <span className="img_profile"><UserOutlined /></span>
-                    <span className="nickname">{me && me.nickname}</span>
-                    <button className="btn_logout" onClick={onLogout}>로그아웃</button>
-                </section>
-                <section className="wish_list">
-                    <h4>위시리스트<span>{myWishs.length}</span></h4>
-                    <ul>
-                        {myWishs.map(book => (
-                            <>
-                                <li>
-                                    <img src={book.src} alt={book.title}/>
-                                    <strong className="title">{book.title.length > 10 ? book.title.slice(0,10) + '...' : book.title.slice(0,10)}</strong>
-                                    <span className="author">{book.author}</span>
-                                    <button className="btn_wish_delete" onClick={onRemoveWish(book.id)}>삭제</button>
-                                </li>
-                            </>
-                        ))}
-                    </ul>
-                </section>
-            </>
-            }
+            <section className="visual_mypage"></section>
+            <section className="myinfo_cont clear">
+                <span className="img_profile"><UserOutlined /></span>
+                <span className="nickname">{me && me.nickname}</span>
+                <button className="btn_logout" onClick={onLogout}>로그아웃</button>
+            </section>
+            <section className="wish_list">
+                <h4>위시리스트<span>{myWishs.length}</span></h4>
+                <ul>
+                    {myWishs.map(book => (
+                        <>
+                            <li>
+                                <img src={book.src} alt={book.title}/>
+                                <strong className="title">{book.title.length > 10 ? book.title.slice(0,10) + '...' : book.title.slice(0,10)}</strong>
+                                <span className="author">{book.author}</span>
+                                <button className="btn_wish_delete" onClick={onRemoveWish(book.id)}>삭제</button>
+                            </li>
+                        </>
+                    ))}
+                </ul>
+            </section>
         </>
     );
 });

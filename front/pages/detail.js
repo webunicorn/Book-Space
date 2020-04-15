@@ -28,7 +28,7 @@ const Detail = memo(({ id }) => {
                     id : me.id
                 }
             });
-        }, 50)
+        }, 50);
         
         bookSearchHandler(query, true);
     },[]);
@@ -106,7 +106,9 @@ const Detail = memo(({ id }) => {
                                 <img className="thumb_img" src={book.thumbnail} alt={book.title}/>
                                 <h3 className="title">{book.title}</h3>
                                 <strong className="authors">{book.authors.map(v => v + ' ')}</strong>
-                                {myWishs.length > 0 ? <button className="btn_wish_cancel" onClick={onRemoveWish(myWishs.map(v=> v.id))}> {(isAddingWish) ? <LoadingOutlined /> : <TagOutlined />} 읽고 싶어요</button> : <button className="btn_wish" onClick={onAddWish}><PlusOutlined /> 읽고 싶어요</button>}
+                                {myWishs.length > 0 
+                                ? <button className="btn_wish_cancel" onClick={onRemoveWish(myWishs.map(v=> v.id))}> {(isAddingWish) ? <LoadingOutlined /> : <TagOutlined />} 읽고 싶어요</button> 
+                                : <button className="btn_wish" onClick={onAddWish}><PlusOutlined /> 읽고 싶어요</button>}
                             </div>
                         </div>
                         <div className="item_intro">

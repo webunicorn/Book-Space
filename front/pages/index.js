@@ -2,7 +2,6 @@ import React, { useState, useCallback, useEffect, useRef, memo } from 'react';
 import { bookSearch } from '../components/BookAPI';
 import List from './list';
 import { SearchOutlined } from '@ant-design/icons';
-import { useSelector } from 'react-redux';
 
 const Home = memo(() => {
     const [query, setQuery] = useState('');
@@ -11,7 +10,6 @@ const Home = memo(() => {
     const [currentPage, setCurrentPage] = useState(0);
     const [isEndPage, setIsEndPage] = useState(true);
     const inputRef = useRef(null);
-    const { isLoggingOut } = useSelector(state => state.user);
 
     useEffect(() => {
         inputRef.current.focus();
@@ -64,37 +62,30 @@ const Home = memo(() => {
       
     return (
         <>
-            {isLoggingOut
-
-            ?   <div className="loading">로딩중입니다.</div>
-
-            :
-            <>
-                <section className="visual">
-                <h2>BOOK SPACE</h2>
-                <blockquote>With freedom, books, flowers, and the moon, who could not be happy? <span>-Oscar Wilde</span></blockquote>
-                </section>
-                <div className="search_box">
-                    <SearchOutlined />
-                    <input className="input_search" type="text" ref={inputRef} value={text} onKeyDown={onEnter} onChange={onChangeText} onKeyUp={onhandleKeyUp} placeholder="책을 검색해 보세요."/>
-                </div>
-                <section className="search_result">
-                    <ul>
-                        {bookResult.map((book, index) => (
-                            <List
-                                key={index}
-                                thumbnail={book.thumbnail}
-                                title={book.title}
-                                authors={book.authors}
-                                isbn={book.isbn}
-                                datetime={book.datetime}
-                            />
-                        ))}
-                    </ul>
-                    {isEndPage || <button className="btn_more btn_type1" onClick={onMoreItems}>더보기</button>}
-                </section>
-            </>
-            }
+            
+            <section className="visual">
+               <h2>BOOK SPACE</h2>
+               <blockquote>With freedom, books, flowers, and the moon, who could not be happy? <span>-Oscar Wilde</span></blockquote>
+            </section>
+            <div className="search_box">
+                <SearchOutlined />
+                <input className="input_search" type="text" ref={inputRef} value={text} onKeyDown={onEnter} onChange={onChangeText} onKeyUp={onhandleKeyUp} placeholder="책을 검색해 보세요."/>
+            </div>
+            <section className="search_result">
+                <ul>
+                    {bookResult.map((book, index) => (
+                        <List
+                            key={index}
+                            thumbnail={book.thumbnail}
+                            title={book.title}
+                            authors={book.authors}
+                            isbn={book.isbn}
+                            datetime={book.datetime}
+                        />
+                    ))}
+                </ul>
+                {isEndPage || <button className="btn_more btn_type1" onClick={onMoreItems}>더보기</button>}
+            </section>
         </>
     );
 });

@@ -42,29 +42,20 @@ const Login = () => {
 
     return (
         <>
-            {isLoggingIn
-
-            ?   <div className="loading">로딩중입니다.</div>
-
-            :
-            <>
-
-                <section className="sub_tit">로그인</section>
-                <section className="login_cont">
-                    <form onSubmit={onSubmitForm}>
-                        <div className="input_box">
-                            <input type="text" name="user_id" value={id} onChange={onChangeId} placeholder="아이디" required/>
-                        </div>
-                        <div className="input_box">
-                            <input type="password" name="user_password" value={password} onChange={onChangePassword} placeholder="비밀번호" required/>
-                        </div>
-                        <p className="validation_message">{loginError}</p>
-                        <button className="btn_login">로그인</button>
-                        <span className="btn_link_join"><Link href="/signup"><a>회원가입</a></Link></span>
-                    </form> 
-                </section>
-            </>
-            }
+            <section className="sub_tit">로그인</section>
+            <section className="login_cont">
+                <form onSubmit={onSubmitForm}>
+                    <div className="input_box">
+                        <input type="text" name="user_id" value={id} onChange={onChangeId} placeholder="아이디" required/>
+                    </div>
+                    <div className="input_box">
+                        <input type="password" name="user_password" value={password} onChange={onChangePassword} placeholder="비밀번호" required/>
+                    </div>
+                    <p className="validation_message">{loginError}</p>
+                    <button className="btn_login">로그인</button>
+                    <span className="btn_link_join"><Link href="/signup"><a>회원가입</a></Link></span>
+                </form> 
+            </section>
         </>
     );
 };
