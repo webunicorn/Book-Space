@@ -16,7 +16,7 @@ const Signup = memo(() => {
     const [term,setTerm] = useState(false);
     const [termError,setTermError] = useState(false);
     const dispatch = useDispatch();
-    const { me, isSignedUp, signUpError } = useSelector(state => state.user);
+    const { me, isSignedUp, signUpError, isSigningUp } = useSelector(state => state.user);
    
     useEffect(() => {
         if(me) {
@@ -106,35 +106,44 @@ const Signup = memo(() => {
 
     return (
         <>
-            <section className="sub_tit">회원가입</section>
-            <section className="signup_cont">
-                <form onSubmit={onSubmitForm}>
-                    <div className="input_box">
-                        <input type="text" id="user_id" name="user_id" value={id} onChange={onChangeId} placeholder="아이디" required />
-                    </div>
-                    {idError && <p className="validation_message">! 5~20자의 영문 소문자와 숫자로만 입력해주세요.</p>}
-                    <div className="input_box">
-                        <input type="text" name="user_nickname" value={nickname} onChange={onChangeNickname} placeholder="닉네임" required />
-                    </div>
-                    {nicknameLengthError && <p className="validation_message">! 1~20자로 입력해주세요.</p>}
-                    <div className="input_box">
-                        <input type="password" name="user_password" value={password} onChange={onChangePassword} placeholder="비밀번호" required />
-                    </div>
-                    {passwordLengthError && <p className="validation_message">! 5~20자로 입력해주세요.</p>}
-                    <div className="input_box">
-                        <input type="password" name="user_password_check" value={passwordCheck} onChange={onChangePasswordChk} placeholder="비밀번호 확인" required />
-                        
-                    </div>
-                    {passwordError && <p className="validation_message">! 비밀번호가 일치하지 않습니다.</p>}
-                    <div className="input_box">
-                        <Checkbox checked={term} onChange={onChangeTerm}>약관에 동의합니다.</Checkbox>
-                        {/* <input type="checkbox" name="user-term" id="user_term" checked={term} onChange={onChangeTerm}/><label htmlFor="user_term">약관에 동의합니다.</label> */}
-                    </div>
-                    {termError && <p className="validation_message">! 약관에 동의하셔야 합니다.</p>}
-                    <p className="validation_message">{signUpError}</p>
-                    <button class="btn_join">가입하기</button>
-                </form>
-            </section>
+            
+            {isSigningUp
+
+            ?   <div className="loading">로딩중입니다.</div>
+
+            :
+                <>
+                <section className="sub_tit">회원가입</section>
+                <section className="signup_cont">
+                    <form onSubmit={onSubmitForm}>
+                        <div className="input_box">
+                            <input type="text" id="user_id" name="user_id" value={id} onChange={onChangeId} placeholder="아이디" required />
+                        </div>
+                        {idError && <p className="validation_message">! 5~20자의 영문 소문자와 숫자로만 입력해주세요.</p>}
+                        <div className="input_box">
+                            <input type="text" name="user_nickname" value={nickname} onChange={onChangeNickname} placeholder="닉네임" required />
+                        </div>
+                        {nicknameLengthError && <p className="validation_message">! 1~20자로 입력해주세요.</p>}
+                        <div className="input_box">
+                            <input type="password" name="user_password" value={password} onChange={onChangePassword} placeholder="비밀번호" required />
+                        </div>
+                        {passwordLengthError && <p className="validation_message">! 5~20자로 입력해주세요.</p>}
+                        <div className="input_box">
+                            <input type="password" name="user_password_check" value={passwordCheck} onChange={onChangePasswordChk} placeholder="비밀번호 확인" required />
+                            
+                        </div>
+                        {passwordError && <p className="validation_message">! 비밀번호가 일치하지 않습니다.</p>}
+                        <div className="input_box">
+                            <Checkbox checked={term} onChange={onChangeTerm}>약관에 동의합니다.</Checkbox>
+                            {/* <input type="checkbox" name="user-term" id="user_term" checked={term} onChange={onChangeTerm}/><label htmlFor="user_term">약관에 동의합니다.</label> */}
+                        </div>
+                        {termError && <p className="validation_message">! 약관에 동의하셔야 합니다.</p>}
+                        <p className="validation_message">{signUpError}</p>
+                        <button class="btn_join">가입하기</button>
+                    </form>
+                </section>
+            </>
+            }
         </>
     );
 });
