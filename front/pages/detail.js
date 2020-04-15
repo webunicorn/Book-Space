@@ -10,11 +10,12 @@ const Detail = memo(({ id }) => {
     
     const router = useRouter();
     const [detailBook, setDetailBook] = useState([]);
-    const { myWishs, isAddingWish, isLoadingWish } = useSelector(state => state.post);
+    const { myWishs, wishAdded, isAddingWish, isLoadingWish } = useSelector(state => state.post);
+    const [changeId, setChangeId] = useState(myWishs.length);
     const { me } = useSelector(state => state.user);
     const dispatch = useDispatch();
     const query = router.query.isbn;
-
+    
     useEffect(() => {
         dispatch({
             type: LOAD_USER_REQUEST,
@@ -31,7 +32,8 @@ const Detail = memo(({ id }) => {
         }, 50);
         
         bookSearchHandler(query, true);
-    },[]);
+ 
+    },[changeId]);
 
     const bookSearchHandler = async (query) => {
         const params = {
@@ -44,6 +46,9 @@ const Detail = memo(({ id }) => {
     
     const onAddWish = useCallback((e) => {
         e.preventDefault();
+
+        setChangeId(myWishs.length);
+   
 
         if(!me) {
             alert('로그인이 필요합니다.');
@@ -68,21 +73,21 @@ const Detail = memo(({ id }) => {
             }
         });
         
-        setTimeout(() => {
-            dispatch({
-                type: LOAD_WISH_INFO_REQUEST,
-                data: {
-                    isbn,
-                    id: me.id
-                }
-            });
-        }, 200)
-        
+        // setTimeout(() => {
+        //     dispatch({
+        //         type: LOAD_WISH_INFO_REQUEST,
+        //         data: {
+        //             isbn,
+        //             id: me.id
+        //         }
+        //     });
+        // }, 800);
+
     },[detailBook]);
-    
 
     const onRemoveWish = useCallback(userId => (e) => {
         e.preventDefault();
+        setChangeId(myWishs.length);
         dispatch({
             type: REMOVE_WISH_REQUEST,
             data: userId
