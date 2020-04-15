@@ -72,7 +72,7 @@ export default (state = initialState, action) => {
 
             case REMOVE_WISH_SUCCESS: {
                 const index = draft.myWishs.findIndex(v => v.id === action.data);
-                draft.myWishs.splice(index, 1);
+                draft.myWishs.splice(index,1);
                 break;
             }
 

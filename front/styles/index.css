@@ -4,6 +4,7 @@ html {font-size:10px;}
 body {font-family:'Noto Sans KR', sans-serif;}
 a:link, a:visited, a:active, a:hover { color:#333; text-decoration:none; }
 .clear::after {display:block; content: ''; clear: both;}
+.loading {display: block; width: 100vw; height: 100vh; z-index: 1000; position: absolute; background: #fff;}
 
 /*** antd checkbox ***/
 .ant-checkbox-checked .ant-checkbox-inner {background-color:#c390db; border-color:#c390db;}
