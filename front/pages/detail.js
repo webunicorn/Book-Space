@@ -94,6 +94,8 @@ const Detail = memo(({ id }) => {
         });
     });
 
+    console.log(myWishs.map(v=> v.id));
+
     return (
         <>
             {isLoadingWish

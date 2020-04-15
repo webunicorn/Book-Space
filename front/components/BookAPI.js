@@ -9,6 +9,5 @@ const Kakao = axios.create({
 });
 
 export const bookSearch = params => {
-    console.log(process.env.KAKAO_API_KEY)
     return Kakao.get("/v3/search/book", { params });
 }
