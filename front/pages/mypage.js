@@ -37,7 +37,7 @@ const Mypage = memo(({ id }) => {
 
     return(
         <>  
-            {isLoadingWish || isLoggingOut
+            {isLoadingWish
             ? <div className="loading">로딩중입니다.</div>
             :
             <>

@@ -97,41 +97,34 @@ const Detail = memo(({ id }) => {
 
     return (
         <>
-            {isLoadingWish
-
-            ?   <div className="loading">로딩중입니다.</div>
-
-            :
+      
+            {detailBook.map((book, index) => (
             <>
-                {detailBook.map((book, index) => (
-                <>
-                    <section className="visual_thumb"><div style={{backgroundImage:`url(${book.thumbnail})`}}></div></section>
-                    <section className="book_cont">
-                        <div className="item_info_wrap">
-                            <div className="item_info clear" key={index}>
-                                <img className="thumb_img" src={book.thumbnail} alt={book.title}/>
-                                <h3 className="title">{book.title}</h3>
-                                <strong className="authors">{book.authors.map(v => v + ' ')}</strong>
-                                {myWishs.length > 0 
-                                ? <button className="btn_wish_cancel" onClick={onRemoveWish(myWishs.map(v=> v.id))}> {(isAddingWish) ? <LoadingOutlined /> : <TagOutlined />} 읽고 싶어요</button> 
-                                : <button className="btn_wish" onClick={onAddWish}><PlusOutlined /> 읽고 싶어요</button>}
-                            </div>
+                <section className="visual_thumb"><div style={{backgroundImage:`url(${book.thumbnail})`}}></div></section>
+                <section className="book_cont">
+                    <div className="item_info_wrap">
+                        <div className="item_info clear" key={index}>
+                            <img className="thumb_img" src={book.thumbnail} alt={book.title}/>
+                            <h3 className="title">{book.title}</h3>
+                            <strong className="authors">{book.authors.map(v => v + ' ')}</strong>
+                            {myWishs.length > 0 
+                            ? <button className="btn_wish_cancel" onClick={onRemoveWish(myWishs.map(v=> v.id))}> {(isLoadingWish) ? <LoadingOutlined /> : <TagOutlined />} 읽고 싶어요</button> 
+                            : <button className="btn_wish" onClick={onAddWish}>{(isLoadingWish) ? <LoadingOutlined /> : <PlusOutlined />} 읽고 싶어요</button>}
                         </div>
-                        <div className="item_intro">
-                            <h4>기본 정보</h4>
-                            {book.publisher.length > 0 && <em className="publisher">{book.publisher} <span>출판</span></em>}
-                            {book.translators.length > 0 && <em className="translators">{book.translators} <span>역</span></em>}
-                            {book.datetime.length > 0 && <em className="date">{book.datetime.slice(0,10)} <span>출간</span></em>}
-                        </div>
-                        <div className="item_preview">
-                            <h4>도서 소개</h4>
-                            <p>{book.contents + '...'}</p>
-                        </div>
-                    </section>
-                </>
-                ))}
+                    </div>
+                    <div className="item_intro">
+                        <h4>기본 정보</h4>
+                        {book.publisher.length > 0 && <em className="publisher">{book.publisher} <span>출판</span></em>}
+                        {book.translators.length > 0 && <em className="translators">{book.translators} <span>역</span></em>}
+                        {book.datetime.length > 0 && <em className="date">{book.datetime.slice(0,10)} <span>출간</span></em>}
+                    </div>
+                    <div className="item_preview">
+                        <h4>도서 소개</h4>
+                        <p>{book.contents + '...'}</p>
+                    </div>
+                </section>
             </>
-            }
+            ))}
         </>
     );
 
