@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { LOAD_USER_WISH_REQUEST, REMOVE_WISH_REQUEST } from '../reducers/post';
 import { LOG_OUT_REQUEST } from '../reducers/user';
 import Router from 'next/router';
-import { UserOutlined, DeleteOutlined, LoadingOutlined } from '@ant-design/icons';
+import { UserOutlined } from '@ant-design/icons';
+import WishList from '../components/WishList';
 
 const Mypage = memo(({ id }) => {
-    const { myWishs, isLoadingWish, isLoggingOut, isRemovingWish } = useSelector(state => state.post);
+    const { myWishs, isLoadingWish, isLoggingOut, isRemovingWish, isLoadingUserWish } = useSelector(state => state.post);
     const { me } = useSelector(state => state.user);
     const dispatch = useDispatch();
 
@@ -21,13 +22,6 @@ const Mypage = memo(({ id }) => {
         }
     },[me && me.id]);
 
-    const onRemoveWish = useCallback(userId => () => {
-        dispatch({
-            type: REMOVE_WISH_REQUEST,
-            data: userId,
-        });
-    });
-
     const onLogout = useCallback(() => {
         dispatch({
             type: LOG_OUT_REQUEST,
@@ -35,33 +29,35 @@ const Mypage = memo(({ id }) => {
         return Router.push('/');
     },[]);
 
+    const onRemoveWish = useCallback(userId => () => {
+        dispatch({
+            type: REMOVE_WISH_REQUEST,
+            data: userId,
+        });
+    });
+
     return(
         <>  
-            {isLoadingWish
+        
+            {isLoadingUserWish
             ? <div className="loading">로딩중입니다.</div>
             :
             <>
+            
                 <section className="visual_mypage"></section>
                 <section className="myinfo_cont clear">
                     <span className="img_profile"><UserOutlined /></span>
                     <span className="nickname">{me && me.nickname}</span>
                     <button className="btn_logout" onClick={onLogout}>로그아웃</button>
                 </section>
-                <section className="wish_list">
-                    <h4>위시리스트<span>{myWishs.length}</span></h4>
-                    <ul>
-                        {myWishs.map(book => (
-                            <>
-                                <li>
-                                    <img src={book.src} alt={book.title}/>
-                                    <strong className="title">{book.title.length > 10 ? book.title.slice(0,10) + '...' : book.title.slice(0,10)}</strong>
-                                    <span className="author">{book.author}</span>
-                                    <button className="btn_wish_delete" onClick={onRemoveWish(book.id)}>{isRemovingWish ? <><LoadingOutlined/>삭제중</> : <><DeleteOutlined />삭제</>}</button>
-                                </li>
-                            </>
-                        ))}
-                    </ul>
-                </section>
+                {isRemovingWish
+                ? <div className="loading">로딩중입니다.</div>
+                :
+                    <WishList 
+                        myWishs={myWishs}
+                        onClickDelete={onRemoveWish}
+                    />
+                }
             </>
             }
         </>

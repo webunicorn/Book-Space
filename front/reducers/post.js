@@ -10,6 +10,7 @@ export const initialState = {
     hasMyWish: false,
     isLoadingWish: false,
     isRemovingWish: false,
+    isLoadingUserWish: false,
 };
 
 export const ADD_WISH_REQUEST = 'ADD_WISH_REQUEST';
@@ -52,6 +53,7 @@ export default (state = initialState, action) => {
             }
 
             case LOAD_USER_WISH_REQUEST: {
+                draft.isLoadingUserWish = true;
                 draft.myWishs = [];
                 break;
             }
@@ -60,10 +62,12 @@ export default (state = initialState, action) => {
                 action.data.forEach((d) => {
                     draft.myWishs.push(d);
                 });
+                draft.isLoadingUserWish = false;
                 break;    
             }
 
             case LOAD_USER_WISH_FAILURE: {
+                draft.isLoadingUserWish = false;
                 break;    
             }
 

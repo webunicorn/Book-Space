@@ -4,7 +4,7 @@ html {font-size:10px;}
 body {font-family:'Noto Sans KR', sans-serif;}
 a:link, a:visited, a:active, a:hover { color:#333; text-decoration:none; }
 .clear::after {display:block; content: ''; clear: both;}
-.loading {display: block; width: 100vw; height: 100vh; z-index: 1000; position: absolute; background: #fff;}
+.loading {display: block; width: 100vw; height: 100vh; z-index: 1000; position: absolute; background: #fff url('../images/icon_loading.gif') no-repeat center; font-size:0; text-indent:-9999px;}
 
 /*** antd checkbox ***/
 .ant-checkbox-checked .ant-checkbox-inner {background-color:#c390db; border-color:#c390db;}
@@ -86,7 +86,7 @@ main {margin-bottom:100px;}
 .btn_wish .anticon-plus {padding-right:4px;}
 .btn_wish .anticon-plus svg {transform: rotate(0deg); transition:all .3s ease-in-out;}
 .btn_wish:hover .anticon-plus svg {transform: rotate(90deg); transition:all .3s ease-in-out;}
-.btn_wish_cancel {margin-top:18px; border:1px solid #babbc1; background:#babbc1; width:200px; height:40px; border-radius:5px; color:#fff; font-size:1.6rem; font-weight:500;}
+.btn_wish_cancel {margin-top:18px; border:1px solid #babbc1; background:#babbc1; width:200px; height:40px; border-radius:5px; color:#fff; font-size:1.6rem; font-weight:500; cursor: default;}
 .btn_wish_cancel .anticon-tag {padding-right:4px;}
 .book_cont h4 {font-size:2rem; font-weight:600; letter-spacing: -1px; padding-bottom:20px;}
 .book_cont .item_intro,
