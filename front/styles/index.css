@@ -4,7 +4,7 @@ html {font-size:10px;}
 body {font-family:'Noto Sans KR', sans-serif;}
 a:link, a:visited, a:active, a:hover { color:#333; text-decoration:none; }
 .clear::after {display:block; content: ''; clear: both;}
-.loading {display: block; width: 100vw; height: 100vh; z-index: 1000; position: absolute; background: #fff url('../images/icon_loading.gif') no-repeat center; font-size:0; text-indent:-9999px;}
+.loading {display: block; width: 100vw; height: 100vh; z-index: 1000; position: absolute; background: #fff url('../images/icon_loading.gif') no-repeat center 18rem; font-size:0; text-indent:-9999px;}
 
 /*** antd checkbox ***/
 .ant-checkbox-checked .ant-checkbox-inner {background-color:#c390db; border-color:#c390db;}
@@ -133,6 +133,9 @@ main {margin-bottom:100px;}
     .btn_login,
     .btn_link_join a,
     .btn_join {width:100%;}
+    header nav h1 a:hover {display: none;}
+    header nav ul li:hover a {display: none;}
+
 }
 
 @media only screen and (min-width:371px) and (max-width : 560px) {

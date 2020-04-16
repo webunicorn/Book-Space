@@ -87,7 +87,7 @@ const Detail = memo(({ id }) => {
                                 <strong className="authors">{book.authors.map(v => v + ' ')}</strong>
                                 {myWishs.length > 0 
                                 ? <button className="btn_wish_cancel" disabled><TagOutlined /> 읽고 싶어요</button> 
-                                : <button className="btn_wish" onClick={onAddWish}>{(isLoadingWish) ? <LoadingOutlined /> : <PlusOutlined />} 읽고 싶어요</button>}
+                                : <button className="btn_wish" onClick={onAddWish}>{isAddingWish ? <LoadingOutlined /> : <PlusOutlined />} 읽고 싶어요</button>}
                             </div>
                         </div>
                         <div className="item_intro">
