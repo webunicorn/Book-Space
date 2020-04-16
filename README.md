@@ -1,7 +1,7 @@
 ![icon_book](https://user-images.githubusercontent.com/23445034/79300480-cee53e80-7f21-11ea-8202-ac555ba2fbc2.png)
 
 # Book-Space
-Book Search App
+[Book Search App](http://bookspace.pe.kr/)
 
 ### 1.프로젝트 소개
 KAKAO 책 검색 API를 활용하여 만든 리액트 프로젝트입니다.
