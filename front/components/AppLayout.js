@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
-import { UserOutlined } from '@ant-design/icons';
+import { UserOutlined, LoadingOutlined } from '@ant-design/icons';
 
 const AppLayout = ({ children }) => {
     const { me, isLoggingOut } = useSelector(state => state.user);
@@ -11,18 +11,21 @@ const AppLayout = ({ children }) => {
         <>
             <header>
                 <nav>
-                    {isLoggingOut
-                    ?<>로딩중</>
-                    :<h1><Link href="/"><a>BookSpace</a></Link></h1>
-                    }
+                    <h1><Link href="/"><a>BookSpace</a></Link></h1>
                     <ul>
                     {me 
                     ?
                         <li className="btn_nav_mypage"><Link href={{ pathname: '/mypage', query: { id: me.id } }} as={`/mypage/${me.id}`}><a><UserOutlined /></a></Link></li>
                     :
                         <>
-                            <li className="btn_nav_signup"><Link href="/signup"><a>회원가입</a></Link></li>
-                            <li className="btn_nav_login"><Link href="/login"><a>로그인</a></Link></li>
+                            
+                            {isLoggingOut
+                            ?<div className="antd_loading"><LoadingOutlined /></div>
+                            :<>
+                                <li className="btn_nav_signup"><Link href="/signup"><a>회원가입</a></Link></li>
+                                <li className="btn_nav_login"><Link href="/login"><a>로그인</a></Link></li>
+                            </>
+                            }
                         </>
                     }
                     </ul>
