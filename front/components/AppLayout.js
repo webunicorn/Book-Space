@@ -15,17 +15,16 @@ const AppLayout = ({ children }) => {
                     <ul>
                     {me 
                     ?
-                        <li className="btn_nav_mypage"><Link href={{ pathname: '/mypage', query: { id: me.id } }} as={`/mypage/${me.id}`}><a><UserOutlined /></a></Link></li>
+                        <>
+                        {isLoggingOut 
+                        ? <div className="antd_loading"><LoadingOutlined /></div> 
+                        : <li className="btn_nav_mypage"><Link href={{ pathname: '/mypage', query: { id: me.id } }} as={`/mypage/${me.id}`}><a><UserOutlined /></a></Link></li>}
+                        </>
                     :
                         <>
-                            
-                            {isLoggingOut
-                            ?<div className="antd_loading"><LoadingOutlined /></div>
-                            :<>
-                                <li className="btn_nav_signup"><Link href="/signup"><a>회원가입</a></Link></li>
-                                <li className="btn_nav_login"><Link href="/login"><a>로그인</a></Link></li>
-                            </>
-                            }
+                            <li className="btn_nav_signup"><Link href="/signup"><a>회원가입</a></Link></li>
+                            <li className="btn_nav_login"><Link href="/login"><a>로그인</a></Link></li>
+                           
                         </>
                     }
                     </ul>
