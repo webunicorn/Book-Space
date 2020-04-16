@@ -63,7 +63,6 @@ main {margin-bottom:100px;}
 .btn_link_join a {margin-top:10px; display:block; width:300px; border:1px solid #ddd; font-size:1.4rem; padding:13px 0; font-weight:500; text-align: center; border-radius:4px; transition:all .2s ease-in-out;}
 .btn_join {margin-top:10px; display:block; width:300px; border:1px solid #c390db; font-size:1.4rem; background:#fff; padding:10px 0; font-weight:500; color:#555; border-radius:4px; transition:all .2s ease-in-out;}
 
-
 /* _dtail */
 .visual_thumb {width: 100%; background:#000; overflow: hidden;}
 .visual_thumb div {height:380px; max-width:1000px; background-size: cover; background-repeat: no-repeat; margin:0 auto; filter: blur(14px); }
@@ -107,7 +106,9 @@ main {margin-bottom:100px;}
 .btn_wish_delete span svg {width:1.3rem; height:1.3rem;}
 
 
-@media only screen and (min-width : 561px) {
+/*** media query ***/
+/* PC : hover X */
+@media only screen and (min-width : 561px) { 
     a:hover { color:#333; text-decoration:none; }
     .ant-checkbox:hover {border-color:#c390db !important;}
     .ant-checkbox-inner::after:hover {border-color:#c390db !important;}
@@ -138,6 +139,7 @@ main {margin-bottom:100px;}
     .btn_login,
     .btn_link_join a,
     .btn_join {width:100%;}
+    .book_cont .item_info .thumb_img {margin-top:-10rem;}
 }
 
 @media only screen and (min-width:371px) and (max-width : 560px) {

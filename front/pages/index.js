@@ -62,7 +62,6 @@ const Home = memo(() => {
       
     return (
         <>
-            
             <section className="visual">
                <h2>BOOK SPACE</h2>
                <blockquote>With freedom, books, flowers, and the moon, who could not be happy? <span>-Oscar Wilde</span></blockquote>

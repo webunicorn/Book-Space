@@ -7,7 +7,7 @@ import { UserOutlined } from '@ant-design/icons';
 import WishList from '../components/WishList';
 
 const Mypage = memo(({ id }) => {
-    const { myWishs, isLoadingWish, isLoggingOut, isRemovingWish, isLoadingUserWish } = useSelector(state => state.post);
+    const { myWishs, isRemovingWish, isLoadingUserWish } = useSelector(state => state.post);
     const { me } = useSelector(state => state.user);
     const dispatch = useDispatch();
 
@@ -42,7 +42,6 @@ const Mypage = memo(({ id }) => {
             ? <div className="loading">로딩중입니다.</div>
             :
             <>
-            
                 <section className="visual_mypage"></section>
                 <section className="myinfo_cont clear">
                     <span className="img_profile"><UserOutlined /></span>

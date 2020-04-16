@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback, memo } from 'react';
 import Router, { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { bookSearch } from '../components/BookAPI';
-import { ADD_WISH_REQUEST, LOAD_WISH_INFO_REQUEST, REMOVE_WISH_REQUEST } from '../reducers/post';
+import { ADD_WISH_REQUEST, LOAD_WISH_INFO_REQUEST } from '../reducers/post';
 import { LOAD_USER_REQUEST } from '../reducers/user';
 import { PlusOutlined, TagOutlined, LoadingOutlined } from '@ant-design/icons';
 

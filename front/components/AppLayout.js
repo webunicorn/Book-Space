@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { UserOutlined, LoadingOutlined } from '@ant-design/icons';
 
 const AppLayout = ({ children }) => {
