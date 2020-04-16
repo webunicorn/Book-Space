@@ -15,6 +15,7 @@ import { LOAD_USER_REQUEST } from '../reducers/user';
 import '../styles/reset.css';
 import '../styles/index.css';
 
+
 const BookSpace = ({ Component, store, pageProps }) => {
 
     const onScroll = useCallback(() => {
