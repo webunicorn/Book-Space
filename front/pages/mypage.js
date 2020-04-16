@@ -47,7 +47,7 @@ const Mypage = memo(({ id }) => {
                 <section className="myinfo_cont clear">
                     <span className="img_profile"><UserOutlined /></span>
                     <span className="nickname">{me && me.nickname}</span>
-                    <button className="btn_logout" onClick={onLogout}>{isLoggingOut ? <>로그아웃중</> : <>로그아웃</>}</button>
+                    <button className="btn_logout" onClick={onLogout}>로그아웃</button>
                 </section>
                 {isRemovingWish
                 ? <div className="loading">로딩중입니다.</div>

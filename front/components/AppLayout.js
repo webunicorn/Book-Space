@@ -5,13 +5,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import { UserOutlined } from '@ant-design/icons';
 
 const AppLayout = ({ children }) => {
-    const { me } = useSelector(state => state.user);
+    const { me, isLoggingOut } = useSelector(state => state.user);
 
     return (
         <>
             <header>
                 <nav>
-                    <h1><Link href="/"><a>BookSpace</a></Link></h1>
+                    {isLoggingOut
+                    ?<>로딩중</>
+                    :<h1><Link href="/"><a>BookSpace</a></Link></h1>
+                    }
                     <ul>
                     {me 
                     ?
